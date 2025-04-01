@@ -8,14 +8,15 @@ function! ToggleHighlight(hl_group, pattern)
         " Remove existing highlight pattern.
         call matchdelete(s:match_highlights[a:pattern])
         call remove(s:match_highlights, a:pattern)
-        " Check if this function was called from a map.
-        if v:false
+        " Check if variable exists for older versions of ViM and if this
+        " function was called from a map.
+        if exists('v:false') && v:false
             echom 'The highlight pattern ' . a:pattern . ' has been disabled.'
         endif
     else
         " Add new highlight pattern. 
         let s:match_highlights[a:pattern] = matchadd(a:hl_group, a:pattern)
-        if v:false
+        if exists('v:false') && v:false
             echom 'The highlight pattern ' . a:pattern . ' has been enabled.'
         endif
     endif
