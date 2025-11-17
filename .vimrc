@@ -64,7 +64,7 @@ function! CKToggle()
 endfunction
 
 " Highlight the 81st column in lines that exceed the 80 character limit.
-call ToggleHighlight('ColorColumn', '\%81v')
+call ToggleHighlight('ColorColumn', '\%81v[^\n]')
 " Highlight from the 81st column onwards in lines that exceed the 80 character
 " limit.
 "call ToggleHighlight('ColorColumn', '\%81v.\+')
