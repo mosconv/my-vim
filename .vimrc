@@ -124,11 +124,13 @@ augroup vimrcEx
 
     " For all text files set 'textwidth' to 80 characters.
     autocmd FileType text setlocal textwidth=80
+    autocmd FileType vhdl setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+    autocmd FileType verilog setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+    autocmd FileType systemverilog setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+    autocmd FileType c,cpp setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 augroup END
 
-au BufWritePre * \
-        let &bex = substitute(expand("%:p:h"), $HOME, '~', '') .
-                \ strftime("%y-%m-%d_%H-%M-%S")
+au BufWritePre * let &bex = substitute(expand("%:p:h"), $HOME, '~', '') . strftime("%y-%m-%d_%H-%M-%S")
 
 " Specify the initial size of the new netrw window 
 let g:netrw_winsize=-30
